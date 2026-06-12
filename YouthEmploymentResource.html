@@ -4,19 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Youth Employment Resource</title>
-  <meta name="description" content="A proposed non-profit resource helping employers, parents, schools and young people understand safe, legal and beneficial work at school age." />
+  <meta name="description" content="A free, independent site helping young people, parents, schools and employers understand first jobs, safe work and the benefits of early experience." />
   <style>
     :root {
-      --ink: #18201d;
-      --muted: #5f6b64;
-      --paper: #fffaf0;
-      --cream: #f5ead2;
-      --green: #20483d;
-      --green-2: #2f6b55;
-      --yellow: #f2c14e;
+      --ink: #17211d;
+      --muted: #5e6b64;
+      --paper: #fff8ea;
+      --cream: #f4e7cc;
+      --green: #21493e;
+      --green-2: #2e6954;
+      --yellow: #f0be43;
       --blue: #d9edf0;
-      --line: rgba(24, 32, 29, 0.14);
-      --shadow: 0 24px 80px rgba(24, 32, 29, 0.14);
+      --pink: #f5d6c6;
+      --line: rgba(23, 33, 29, 0.14);
+      --shadow: 0 24px 80px rgba(23, 33, 29, 0.14);
     }
 
     * { box-sizing: border-box; }
@@ -28,8 +29,9 @@
       font-family: Georgia, 'Times New Roman', serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(242, 193, 78, 0.18), transparent 34rem),
-        linear-gradient(180deg, var(--paper), #f8f0df 52%, #fffaf0);
+        radial-gradient(circle at 8% 4%, rgba(240, 190, 67, 0.22), transparent 32rem),
+        radial-gradient(circle at 92% 8%, rgba(217, 237, 240, 0.8), transparent 34rem),
+        linear-gradient(180deg, var(--paper), #f8eedb 52%, #fff8ea);
       line-height: 1.55;
     }
 
@@ -41,13 +43,13 @@
     }
 
     header {
-      padding: 28px clamp(20px, 4vw, 64px);
+      padding: 26px clamp(20px, 4vw, 64px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 24px;
       border-bottom: 1px solid var(--line);
-      background: rgba(255, 250, 240, 0.78);
+      background: rgba(255, 248, 234, 0.82);
       backdrop-filter: blur(14px);
       position: sticky;
       top: 0;
@@ -85,15 +87,13 @@
       color: var(--muted);
     }
 
-    nav a {
-      text-decoration: none;
-    }
+    nav a { text-decoration: none; }
 
     .hero {
       position: relative;
       padding: clamp(54px, 8vw, 110px) clamp(20px, 4vw, 64px) 70px;
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
       gap: clamp(34px, 5vw, 80px);
       align-items: center;
     }
@@ -101,13 +101,13 @@
     .hero::after {
       content: "";
       position: absolute;
-      right: -180px;
+      right: -170px;
       top: 70px;
-      width: 520px;
-      height: 520px;
+      width: 540px;
+      height: 540px;
       border-radius: 50%;
       background: var(--blue);
-      opacity: 0.55;
+      opacity: 0.58;
       z-index: -1;
     }
 
@@ -136,14 +136,14 @@
 
     h1 {
       margin: 24px 0 18px;
-      font-size: clamp(46px, 8vw, 94px);
+      font-size: clamp(48px, 8vw, 96px);
       line-height: 0.94;
-      letter-spacing: -0.07em;
-      max-width: 900px;
+      letter-spacing: -0.075em;
+      max-width: 950px;
     }
 
     .lead {
-      max-width: 740px;
+      max-width: 760px;
       font-size: clamp(19px, 2.2vw, 27px);
       color: #33413b;
     }
@@ -178,7 +178,7 @@
       color: var(--green);
     }
 
-    .notice-card {
+    .warm-card {
       background: var(--green);
       color: var(--paper);
       border-radius: 34px;
@@ -188,8 +188,8 @@
       isolation: isolate;
     }
 
-    .notice-card::before {
-      content: "Temporary concept page";
+    .warm-card::before {
+      content: "First stage of the project";
       position: absolute;
       right: 24px;
       top: -15px;
@@ -205,34 +205,34 @@
       transform: rotate(2deg);
     }
 
-    .notice-card h2 {
+    .warm-card h2 {
       margin: 0 0 18px;
       font-size: clamp(30px, 4vw, 46px);
       line-height: 1;
       letter-spacing: -0.04em;
     }
 
-    .notice-card p {
-      color: rgba(255, 250, 240, 0.86);
+    .warm-card p {
+      color: rgba(255, 248, 234, 0.86);
       font-size: 18px;
       margin: 0;
     }
 
-    .stats {
+    .mini-list {
       margin-top: 30px;
       display: grid;
       gap: 12px;
       font-family: Arial, sans-serif;
     }
 
-    .stat {
+    .mini-item {
       padding: 15px;
       border-radius: 18px;
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.13);
     }
 
-    .stat strong {
+    .mini-item strong {
       display: block;
       font-size: 22px;
       color: var(--yellow);
@@ -270,7 +270,7 @@
 
     .section-copy {
       margin: 0;
-      max-width: 700px;
+      max-width: 850px;
       font-size: clamp(18px, 2vw, 23px);
       color: #39463f;
     }
@@ -286,7 +286,7 @@
       border: 1px solid var(--line);
       border-radius: 28px;
       padding: 26px;
-      min-height: 220px;
+      min-height: 235px;
     }
 
     .card h3 {
@@ -318,7 +318,7 @@
     .feature-visual {
       background:
         linear-gradient(135deg, rgba(32,72,61,0.92), rgba(47,107,85,0.88)),
-        repeating-linear-gradient(45deg, transparent 0 10px, rgba(255,255,255,0.12) 10px 11px);
+        radial-gradient(circle at top right, rgba(240,190,67,0.38), transparent 18rem);
       padding: 38px;
       color: var(--paper);
       display: flex;
@@ -336,8 +336,8 @@
 
     .feature-visual .small {
       font-family: Arial, sans-serif;
-      color: rgba(255,250,240,0.78);
-      max-width: 300px;
+      color: rgba(255,248,234,0.78);
+      max-width: 320px;
     }
 
     .feature-content {
@@ -441,7 +441,7 @@
       font-size: 14px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(255,250,240,0.6);
+      color: rgba(255,248,234,0.6);
     }
 
     footer {
@@ -481,9 +481,9 @@
         <div>Youth Employment Resource</div>
       </div>
       <nav aria-label="Page navigation">
-        <a href="#purpose">Purpose</a>
-        <a href="#audiences">Audiences</a>
-        <a href="#resource">Resource</a>
+        <a href="#why">Why</a>
+        <a href="#people">Who for</a>
+        <a href="#questions">Questions</a>
         <a href="#principles">Principles</a>
       </nav>
     </header>
@@ -491,79 +491,79 @@
     <main>
       <section class="hero" aria-labelledby="main-title">
         <div>
-          <div class="eyebrow">Proposed non-profit resource</div>
-          <h1 id="main-title">Helping young people take their first safe step into work.</h1>
-          <p class="lead">A plain-English website for employers, parents, schools and young people explaining the legalities, protections and benefits of school-age work.</p>
+          <div class="eyebrow">First jobs. Safe work. Real experience.</div>
+          <h1 id="main-title">Everyone remembers their first job.</h1>
+          <p class="lead">This site helps young people, parents, schools and employers understand how first jobs can work safely, legally and positively.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#resource">See the concept</a>
-            <a class="button secondary" href="#principles">Read the principles</a>
+            <a class="button primary" href="#questions">Questions we answer</a>
+            <a class="button secondary" href="#principles">How we think about it</a>
           </div>
         </div>
 
-        <aside class="notice-card" aria-label="Temporary concept note">
-          <h2>Not a campaign. Not a charity. A practical resource.</h2>
-          <p>The aim is to make early work less confusing, less intimidating and more accessible — while being clear that safety, suitability and legal compliance come first.</p>
-          <div class="stats">
-            <div class="stat"><strong>Employers</strong>Clear guidance before offering opportunities.</div>
-            <div class="stat"><strong>Parents</strong>Confidence that work can be safe and worthwhile.</div>
-            <div class="stat"><strong>Young people</strong>Realistic, age-appropriate routes into experience.</div>
+        <aside class="warm-card" aria-label="First-stage project note">
+          <h2>Small jobs. Big lessons.</h2>
+          <p>A few hours after school, a Saturday job, a holiday shift or helping in a local business can teach confidence, responsibility, communication and independence.</p>
+          <div class="mini-list">
+            <div class="mini-item"><strong>Earn</strong>Understand money, effort and responsibility.</div>
+            <div class="mini-item"><strong>Learn</strong>Build confidence, communication and life skills.</div>
+            <div class="mini-item"><strong>Stay safe</strong>Know what is allowed, sensible and properly supervised.</div>
           </div>
         </aside>
       </section>
 
-      <section id="purpose">
+      <section id="why">
         <div class="section-head">
-          <div class="label">Purpose</div>
+          <div class="label">Why this exists</div>
           <div>
-            <h2 class="section-title">Early work can build more than pocket money.</h2>
-            <p class="section-copy">For many young people, a first job teaches confidence, punctuality, communication, resilience and responsibility. Yet many adults are unsure what is allowed, what is sensible, and what protections need to be in place.</p>
+            <h2 class="section-title">Getting started should not feel confusing.</h2>
+            <p class="section-copy">Lots of young people would like to earn a little money, help out, meet people and feel useful. Lots of employers would like to offer chances too. The problem is that everyone worries about the rules, the risks and whether they are doing the right thing.</p>
           </div>
         </div>
       </section>
 
-      <section id="audiences">
+      <section id="people">
         <div class="section-head">
           <div class="label">Who it is for</div>
           <div>
-            <h2 class="section-title">Four groups need the same information, in different language.</h2>
+            <h2 class="section-title">Different questions. Different perspectives.</h2>
           </div>
         </div>
 
         <div class="grid">
           <article class="card">
-            <h3>Employers</h3>
-            <p>Simple explanations of age limits, hours, permitted work, risk assessment, supervision, safeguarding and how to offer meaningful experience responsibly.</p>
+            <h3>Young people</h3>
+            <p>Thinking about a first job? We explain where to start, what sort of work might suit you, what to ask, what to expect and how to stay safe.</p>
           </article>
           <article class="card">
             <h3>Parents</h3>
-            <p>Practical reassurance on what questions to ask, what warning signs to look for, and how work can support confidence without compromising school or wellbeing.</p>
+            <p>Clear information on hours, travel, supervision, pay, safety and how work can build confidence without getting in the way of school or wellbeing.</p>
           </article>
           <article class="card">
-            <h3>Schools</h3>
-            <p>A neutral resource to help discuss employability, local opportunities, work readiness and the difference between exploitation and proper early experience.</p>
+            <h3>Employers</h3>
+            <p>Simple guidance on giving young people a good first experience while understanding age limits, suitable work, supervision and responsibilities.</p>
           </article>
           <article class="card">
-            <h3>Young people</h3>
-            <p>Clear, friendly guidance on where to start, how to approach employers, what to expect, and how to recognise a good first workplace.</p>
+            <h3>Teachers &amp; Schools</h3>
+            <p>A practical place to support conversations about work, responsibility, confidence and life beyond the classroom.</p>
           </article>
         </div>
       </section>
 
-      <section id="resource">
+      <section id="questions">
         <div class="feature-band">
           <div class="feature-visual">
-            <div class="big">Work<br>Done<br>Right.</div>
-            <div class="small">A resource built around opportunity, responsibility and common sense.</div>
+            <div class="big">First<br>Jobs<br>Matter.</div>
+            <div class="small">The first stage of a growing site about opportunity, safety and common sense.</div>
           </div>
           <div class="feature-content">
-            <h3>What the website could include</h3>
+            <h3>Questions we answer</h3>
             <ul class="check-list">
-              <li>Plain-English summaries of the rules for school-age work, with links to official guidance.</li>
-              <li>Checklists for employers before offering a young person work or work experience.</li>
-              <li>Parent guides covering safety, travel, hours, pay, supervision and school impact.</li>
-              <li>Examples of suitable first jobs and the skills each can develop.</li>
-              <li>Templates for simple role descriptions, permission notes and workplace expectations.</li>
-              <li>Stories showing how early work can shape confidence, ambition and independence.</li>
+              <li>How old do you need to be to get a job?</li>
+              <li>What sort of jobs are suitable for young people?</li>
+              <li>How many hours can a young person work?</li>
+              <li>What should parents check before saying yes?</li>
+              <li>What should employers do before offering work?</li>
+              <li>How can a first job build confidence, skills and independence?</li>
             </ul>
           </div>
         </div>
@@ -571,41 +571,41 @@
 
       <section id="principles">
         <div class="section-head">
-          <div class="label">Principles</div>
+          <div class="label">How we think about it</div>
           <div>
-            <h2 class="section-title">The message is positive, but never casual about risk.</h2>
+            <h2 class="section-title">Positive about work. Serious about safety.</h2>
           </div>
         </div>
         <div class="principles">
           <article class="principle">
             <span>1</span>
-            <h3>Legal first</h3>
-            <p>The resource should not encourage shortcuts. It should help people understand local rules, official guidance and the need to check requirements properly.</p>
+            <h3>Keep it legal</h3>
+            <p>No shortcuts. The site points people towards the rules and encourages adults to check what applies locally.</p>
           </article>
           <article class="principle">
             <span>2</span>
-            <h3>Safeguarding always</h3>
-            <p>Work must be suitable, supervised and age-appropriate. The resource should make protections feel practical rather than bureaucratic.</p>
+            <h3>Keep it safe</h3>
+            <p>Work should be suitable, supervised and age-appropriate. Safety should feel practical, not frightening.</p>
           </article>
           <article class="principle">
             <span>3</span>
-            <h3>Benefits explained</h3>
-            <p>The case for early work should be made clearly: confidence, manners, resilience, independence, teamwork, customer skills and pride in earning.</p>
+            <h3>Make it worthwhile</h3>
+            <p>A good first job can teach confidence, manners, teamwork, resilience, customer skills and pride in earning.</p>
           </article>
         </div>
       </section>
 
       <section>
         <blockquote class="quote">
-          The goal is not to push children into work. It is to help adults create safe, useful opportunities when a young person is ready for them.
-          <cite>Youth Employment Resource concept</cite>
+          The aim is not to push children into work. It is to help young people get good first experiences when they are ready for them.
+          <cite>Youth Employment Resource</cite>
         </blockquote>
       </section>
     </main>
 
     <footer>
-      <div>Youth Employment Resource — temporary concept page</div>
-      <div>No contact page. No fundraising claim. No charity status implied.</div>
+      <div>Youth Employment Resource — first stage of the project</div>
+      <div>A free, independent site about first jobs, safe work and real experience.</div>
     </footer>
   </div>
 </body>
