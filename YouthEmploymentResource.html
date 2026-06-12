@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youth Employment Resource</title>
+  <meta name="description" content="A proposed non-profit resource helping employers, parents, schools and young people understand safe, legal and beneficial work at school age." />
+  <style>
+    :root {
+      --ink: #18201d;
+      --muted: #5f6b64;
+      --paper: #fffaf0;
+      --cream: #f5ead2;
+      --green: #20483d;
+      --green-2: #2f6b55;
+      --yellow: #f2c14e;
+      --blue: #d9edf0;
+      --line: rgba(24, 32, 29, 0.14);
+      --shadow: 0 24px 80px rgba(24, 32, 29, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(242, 193, 78, 0.18), transparent 34rem),
+        linear-gradient(180deg, var(--paper), #f8f0df 52%, #fffaf0);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      padding: 28px clamp(20px, 4vw, 64px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 250, 240, 0.78);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: var(--green);
+      color: var(--paper);
+      display: grid;
+      place-items: center;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(32, 72, 61, 0.25);
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    .hero {
+      position: relative;
+      padding: clamp(54px, 8vw, 110px) clamp(20px, 4vw, 64px) 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: clamp(34px, 5vw, 80px);
+      align-items: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -180px;
+      top: 70px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: var(--blue);
+      opacity: 0.55;
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--green);
+      background: rgba(255,255,255,0.45);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--yellow);
+    }
+
+    h1 {
+      margin: 24px 0 18px;
+      font-size: clamp(46px, 8vw, 94px);
+      line-height: 0.94;
+      letter-spacing: -0.07em;
+      max-width: 900px;
+    }
+
+    .lead {
+      max-width: 740px;
+      font-size: clamp(19px, 2.2vw, 27px);
+      color: #33413b;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-family: Arial, sans-serif;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--green);
+    }
+
+    .button.primary {
+      background: var(--green);
+      color: var(--paper);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--green);
+    }
+
+    .notice-card {
+      background: var(--green);
+      color: var(--paper);
+      border-radius: 34px;
+      padding: clamp(24px, 4vw, 42px);
+      box-shadow: var(--shadow);
+      position: relative;
+      isolation: isolate;
+    }
+
+    .notice-card::before {
+      content: "Temporary concept page";
+      position: absolute;
+      right: 24px;
+      top: -15px;
+      background: var(--yellow);
+      color: #2d2611;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 9px 13px;
+      border-radius: 999px;
+      transform: rotate(2deg);
+    }
+
+    .notice-card h2 {
+      margin: 0 0 18px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .notice-card p {
+      color: rgba(255, 250, 240, 0.86);
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .stats {
+      margin-top: 30px;
+      display: grid;
+      gap: 12px;
+      font-family: Arial, sans-serif;
+    }
+
+    .stat {
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.13);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      color: var(--yellow);
+      margin-bottom: 2px;
+    }
+
+    section {
+      padding: clamp(52px, 7vw, 96px) clamp(20px, 4vw, 64px);
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1fr);
+      gap: clamp(24px, 5vw, 70px);
+      align-items: start;
+      margin-bottom: 36px;
+    }
+
+    .label {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--green-2);
+      font-weight: 800;
+    }
+
+    h2.section-title {
+      margin: 0 0 36px;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .section-copy {
+      margin: 0;
+      max-width: 700px;
+      font-size: clamp(18px, 2vw, 23px);
+      color: #39463f;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.52);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      min-height: 220px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .feature-band {
+      margin-top: 34px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      box-shadow: 0 18px 60px rgba(24, 32, 29, 0.08);
+    }
+
+    .feature-visual {
+      background:
+        linear-gradient(135deg, rgba(32,72,61,0.92), rgba(47,107,85,0.88)),
+        repeating-linear-gradient(45deg, transparent 0 10px, rgba(255,255,255,0.12) 10px 11px);
+      padding: 38px;
+      color: var(--paper);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 390px;
+    }
+
+    .feature-visual .big {
+      font-size: clamp(58px, 8vw, 110px);
+      line-height: 0.82;
+      letter-spacing: -0.08em;
+      font-weight: 700;
+    }
+
+    .feature-visual .small {
+      font-family: Arial, sans-serif;
+      color: rgba(255,250,240,0.78);
+      max-width: 300px;
+    }
+
+    .feature-content {
+      padding: clamp(28px, 5vw, 58px);
+    }
+
+    .feature-content h3 {
+      margin: 0 0 20px;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .check-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      color: #435049;
+      line-height: 1.5;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: #32270c;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .principle {
+      padding: 28px;
+      border-radius: 28px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+    }
+
+    .principle span {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      background: var(--green);
+      color: var(--paper);
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .principle h3 {
+      margin: 0 0 10px;
+      font-size: 25px;
+      letter-spacing: -0.03em;
+    }
+
+    .principle p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .quote {
+      margin: 0;
+      padding: clamp(36px, 6vw, 72px);
+      border-radius: 38px;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: clamp(30px, 4.8vw, 62px);
+      line-height: 1.03;
+      letter-spacing: -0.055em;
+      box-shadow: var(--shadow);
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: 22px;
+      font-family: Arial, sans-serif;
+      font-style: normal;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,250,240,0.6);
+    }
+
+    footer {
+      padding: 36px clamp(20px, 4vw, 64px) 50px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 920px) {
+      header { position: static; align-items: flex-start; }
+      nav { display: none; }
+      .hero, .section-head, .feature-band { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .principles { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .hero { padding-top: 42px; }
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+      footer { flex-direction: column; }
+      .hero-actions { display: grid; }
+      .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">YE</div>
+        <div>Youth Employment Resource</div>
+      </div>
+      <nav aria-label="Page navigation">
+        <a href="#purpose">Purpose</a>
+        <a href="#audiences">Audiences</a>
+        <a href="#resource">Resource</a>
+        <a href="#principles">Principles</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="main-title">
+        <div>
+          <div class="eyebrow">Proposed non-profit resource</div>
+          <h1 id="main-title">Helping young people take their first safe step into work.</h1>
+          <p class="lead">A plain-English website for employers, parents, schools and young people explaining the legalities, protections and benefits of school-age work.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#resource">See the concept</a>
+            <a class="button secondary" href="#principles">Read the principles</a>
+          </div>
+        </div>
+
+        <aside class="notice-card" aria-label="Temporary concept note">
+          <h2>Not a campaign. Not a charity. A practical resource.</h2>
+          <p>The aim is to make early work less confusing, less intimidating and more accessible — while being clear that safety, suitability and legal compliance come first.</p>
+          <div class="stats">
+            <div class="stat"><strong>Employers</strong>Clear guidance before offering opportunities.</div>
+            <div class="stat"><strong>Parents</strong>Confidence that work can be safe and worthwhile.</div>
+            <div class="stat"><strong>Young people</strong>Realistic, age-appropriate routes into experience.</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="purpose">
+        <div class="section-head">
+          <div class="label">Purpose</div>
+          <div>
+            <h2 class="section-title">Early work can build more than pocket money.</h2>
+            <p class="section-copy">For many young people, a first job teaches confidence, punctuality, communication, resilience and responsibility. Yet many adults are unsure what is allowed, what is sensible, and what protections need to be in place.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="audiences">
+        <div class="section-head">
+          <div class="label">Who it is for</div>
+          <div>
+            <h2 class="section-title">Four groups need the same information, in different language.</h2>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Employers</h3>
+            <p>Simple explanations of age limits, hours, permitted work, risk assessment, supervision, safeguarding and how to offer meaningful experience responsibly.</p>
+          </article>
+          <article class="card">
+            <h3>Parents</h3>
+            <p>Practical reassurance on what questions to ask, what warning signs to look for, and how work can support confidence without compromising school or wellbeing.</p>
+          </article>
+          <article class="card">
+            <h3>Schools</h3>
+            <p>A neutral resource to help discuss employability, local opportunities, work readiness and the difference between exploitation and proper early experience.</p>
+          </article>
+          <article class="card">
+            <h3>Young people</h3>
+            <p>Clear, friendly guidance on where to start, how to approach employers, what to expect, and how to recognise a good first workplace.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="resource">
+        <div class="feature-band">
+          <div class="feature-visual">
+            <div class="big">Work<br>Done<br>Right.</div>
+            <div class="small">A resource built around opportunity, responsibility and common sense.</div>
+          </div>
+          <div class="feature-content">
+            <h3>What the website could include</h3>
+            <ul class="check-list">
+              <li>Plain-English summaries of the rules for school-age work, with links to official guidance.</li>
+              <li>Checklists for employers before offering a young person work or work experience.</li>
+              <li>Parent guides covering safety, travel, hours, pay, supervision and school impact.</li>
+              <li>Examples of suitable first jobs and the skills each can develop.</li>
+              <li>Templates for simple role descriptions, permission notes and workplace expectations.</li>
+              <li>Stories showing how early work can shape confidence, ambition and independence.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="principles">
+        <div class="section-head">
+          <div class="label">Principles</div>
+          <div>
+            <h2 class="section-title">The message is positive, but never casual about risk.</h2>
+          </div>
+        </div>
+        <div class="principles">
+          <article class="principle">
+            <span>1</span>
+            <h3>Legal first</h3>
+            <p>The resource should not encourage shortcuts. It should help people understand local rules, official guidance and the need to check requirements properly.</p>
+          </article>
+          <article class="principle">
+            <span>2</span>
+            <h3>Safeguarding always</h3>
+            <p>Work must be suitable, supervised and age-appropriate. The resource should make protections feel practical rather than bureaucratic.</p>
+          </article>
+          <article class="principle">
+            <span>3</span>
+            <h3>Benefits explained</h3>
+            <p>The case for early work should be made clearly: confidence, manners, resilience, independence, teamwork, customer skills and pride in earning.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <blockquote class="quote">
+          The goal is not to push children into work. It is to help adults create safe, useful opportunities when a young person is ready for them.
+          <cite>Youth Employment Resource concept</cite>
+        </blockquote>
+      </section>
+    </main>
+
+    <footer>
+      <div>Youth Employment Resource — temporary concept page</div>
+      <div>No contact page. No fundraising claim. No charity status implied.</div>
+    </footer>
+  </div>
+</body>
+</html>
