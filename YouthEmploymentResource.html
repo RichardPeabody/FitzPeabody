@@ -304,6 +304,23 @@
       line-height: 1.6;
     }
 
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .card-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(23,33,29,0.12);
+      border-color: rgba(33,73,62,0.35);
+    }
+
+    .card-link:hover h3 {
+      color: var(--green);
+    }
+
     .feature-band {
       margin-top: 34px;
       background: #fff;
@@ -530,22 +547,25 @@
         </div>
 
         <div class="grid">
-          <article class="card">
+          <a href="YoungPeople.html" class="card card-link">
             <h3>Young people</h3>
             <p>Thinking about a first job? We explain where to start, what sort of work might suit you, what to ask, what to expect and how to stay safe.</p>
-          </article>
-          <article class="card">
+          </a>
+
+          <a href="Parents.html" class="card card-link">
             <h3>Parents</h3>
             <p>Clear information on hours, travel, supervision, pay, safety and how work can build confidence without getting in the way of school or wellbeing.</p>
-          </article>
-          <article class="card">
+          </a>
+
+          <a href="Employers.html" class="card card-link">
             <h3>Employers</h3>
             <p>Simple guidance on giving young people a good first experience while understanding age limits, suitable work, supervision and responsibilities.</p>
-          </article>
-          <article class="card">
+          </a>
+
+          <a href="Teachers.html" class="card card-link">
             <h3>Teachers &amp; Schools</h3>
             <p>A practical place to support conversations about work, responsibility, confidence and life beyond the classroom.</p>
-          </article>
+          </a>
         </div>
       </section>
 
